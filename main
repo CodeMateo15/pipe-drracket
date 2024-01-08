@@ -1,19 +1,8 @@
 (require 2htdp/image)
 (require 2htdp/universe)
 
-;;! Pipe-dream: PART 2 Official Solution v1.0
-;;! NOTE if using this solution for part 3:
-;;! - Do not delete lines that starts with ;;! when editing this solution.
-;;! - If this solution needs to be modified, we will make
-;;!   an announcement on Piazza in the post titled "Homework 11 Clarifications".
-;;!   So check Piazza often!
-;;! - Some tests are omitted from this file. You do not have to fill the tests in
-;;!   if you are just using these functions elsewhere in your code. However, you have to write tests for all
-;;!   the functions you modify, excluding the ones that returns an image.
-
-;;! Complete Task 7 here, after you have finished all other tasks.
 ;; Go to bottom and uncomment GAME-DEMO Grid Pipe-Fantasy and comment Empty Pipe-Fantasy
-;(pipe-fantasy (gamestate-init GRID-DIM 1 1 "right" TILE-SIZE PIPE-WIDTH GAME-DEMO #true))
+;; (pipe-fantasy (gamestate-init GRID-DIM 1 1 "right" TILE-SIZE PIPE-WIDTH GAME-DEMO #true))
 
 (define TILE-SIZE 100)
 (define PIPE-WIDTH 30) 
@@ -51,7 +40,7 @@
     (list #false #false #true #true)
     (list #true #true #true #true)))) 
 
-;; Let's have all types of pipes in a list!
+;; All types of pipes in a list!
 (define ALL-PIPES (append PASS-THROUGH-PIPES START-PIPES))
 
 ;; direction is one of:
@@ -184,8 +173,6 @@
 ;; length of cells must be less than (dim * dim)
 
 (define STARTING-GRID (make-grid GRID-DIM empty))
-
-;; grid for task 7
 
 (define DEMO-TASK7 (list
                     (list 1 1 (make-pipe #false #false #false #true))
@@ -532,7 +519,7 @@
 ;; tile-size: the size of the tile in the interface 
 ;; pipe-width: the width of the pipe in the interface
 ;; incoming-pipes: the list of incoming pipes
-;; demo? : #true if the GameState is demo (task 7)
+;; demo? : #true if the GameState is demo
 (define (gamestate-init grid-dim start-x start-y start-dir tile-size pipe-width incoming-pipes demo?)
   (local
     [(define start-pipe 
@@ -557,7 +544,7 @@
                     -50
                     140))) 
 
-;;GAME-DEMO list of pipes for the demo (task 7)
+;;GAME-DEMO list of pipes for the demo
 (define GAME-DEMO
   (map
    (lambda (pipe-dirs) (apply make-pipe pipe-dirs))
@@ -591,7 +578,7 @@
     [on-tick timer-count]))  
 
 ;; Empty Grid
-;(pipe-fantasy (gamestate-init GRID-DIM 1 1 "right" TILE-SIZE PIPE-WIDTH DOUBLE-PASS-THROUGH-PIPES #false)) 
+;; (pipe-fantasy (gamestate-init GRID-DIM 1 1 "right" TILE-SIZE PIPE-WIDTH DOUBLE-PASS-THROUGH-PIPES #false)) 
 
 ;; GAME-DEMO Grid, need to uncomment to work and comment prior pipe-fantasy
-;(pipe-fantasy (gamestate-init GRID-DIM 1 1 "right" TILE-SIZE PIPE-WIDTH GAME-DEMO #true))
+;; (pipe-fantasy (gamestate-init GRID-DIM 1 1 "right" TILE-SIZE PIPE-WIDTH GAME-DEMO #true))
